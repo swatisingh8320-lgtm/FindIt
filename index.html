@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">Find<span>It.</span></div>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('browse')">Browse Items</a>
+        <a href="#" onclick="showPage('report')">Report Item</a>
+        <a href="#" onclick="showPage('about')">About</a>
+    </nav>
+
+    <button class="login-btn" onclick="showPage('login')">
+        Login
+    </button>
+</header>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+    <div class="hero">
+        <div class="hero-content">
+            <p class="tagline">LOST SOMETHING? FOUND SOMETHING?</p>
+            <h1>Helping lost things<br>find their <span>way home.</span></h1>
+            <p class="hero-text">
+                A simple platform to report lost belongings,
+                discover found items and reconnect people
+                with the things they value.
+            </p>
+
+            <button onclick="showPage('browse')" class="primary-btn">
+                Browse Items
+            </button>
+
+            <button onclick="showPage('report')" class="secondary-btn">
+                Report an Item
+            </button>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div>
+            <h2 id="totalItems">0</h2>
+            <p>Total Reports</p>
+        </div>
+        <div>
+            <h2 id="lostCount">0</h2>
+            <p>Lost Items</p>
+        </div>
+        <div>
+            <h2 id="foundCount">0</h2>
+            <p>Found Items</p>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <h2>How It Works</h2>
+        <p>Three simple steps to reunite people with their belongings.</p>
+    </div>
+
+    <div class="steps">
+        <div class="step-card">
+            <h3>01. Report</h3>
+            <p>Submit details about your lost or found belonging.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>02. Search</h3>
+            <p>Browse reports and search for matching items.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>03. Reconnect</h3>
+            <p>Contact the person who reported the matching item.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BROWSE PAGE -->
+<section id="browse" class="page">
+    <div class="page-heading">
+        <h1>Browse Items</h1>
+        <p>Search through lost and found belongings.</p>
+    </div>
+
+    <div class="search-area">
+        <input type="text" id="searchInput"
+               placeholder="Search item name or category..."
+               oninput="displayItems()">
+
+        <select id="filterType" onchange="displayItems()">
+            <option value="All">All Items</option>
+            <option value="Lost">Lost Items</option>
+            <option value="Found">Found Items</option>
+        </select>
+    </div>
+
+    <div id="itemsContainer" class="items-grid"></div>
+</section>
+
+<!-- REPORT PAGE -->
+<section id="report" class="page">
+    <div class="form-container">
+        <h1>Report an Item</h1>
+        <p>Help someone find their missing belonging.</p>
+
+        <form id="reportForm">
+            <label>Item Name</label>
+            <input type="text" id="itemName"
+                   placeholder="Example: Black Wallet" required>
+
+            <label>Category</label>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option>Electronics</option>
+                <option>Documents</option>
+                <option>Bags</option>
+                <option>Accessories</option>
+                <option>Clothing</option>
+                <option>Others</option>
+            </select>
+
+            <label>Report Type</label>
+            <select id="itemType" required>
+                <option value="">Select Type</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+            </select>
+
+            <label>Location</label>
+            <input type="text" id="location"
+                   placeholder="Where was it lost or found?" required>
+
+            <label>Date</label>
+            <input type="date" id="date" required>
+
+            <label>Description</label>
+            <textarea id="description"
+                      placeholder="Describe the item..."
+                      required></textarea>
+
+            <label>Contact Email</label>
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <button type="submit" class="primary-btn full-btn">
+                Submit Report
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- LOGIN PAGE -->
+<section id="login" class="page">
+    <div class="form-container login-container">
+        <h1>Welcome Back!</h1>
+        <p>Login to your Lost & Found Portal.</p>
+
+        <form id="loginForm">
+            <label>Username</label>
+            <input type="text" id="username"
+                   placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" id="password"
+                   placeholder="Enter password" required>
+
+            <button type="submit" class="primary-btn full-btn">
+                Login
+            </button>
+        </form>
+
+        <p class="small-note">
+            Demo login: enter any username and password.
+        </p>
+    </div>
+</section>
+
+<!-- ABOUT PAGE -->
+<section id="about" class="page">
+    <div class="about-content">
+        <h1>About FindIt.</h1>
+        <p>
+            FindIt is a Lost and Found Portal designed to help
+            people report missing belongings and discover
+            items that have been found.
+        </p>
+        <p>
+            Our goal is to make the process of finding lost
+            belongings easier, faster and more accessible.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 FindIt. Lost & Found Portal.</p>
+    <p>Helping lost things find their way home.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
